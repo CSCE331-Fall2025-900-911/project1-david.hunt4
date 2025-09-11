@@ -2,49 +2,55 @@
 <html>
 <head>
     <title>David Hunt | Personal Website</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
     <header>
-        <h1>Welcome to David Hunt's Personal Website</h1>
-        <div class="nav-center">
+        <div align="center">
+            <a href="index.html">Home</a> |
             <a href="portfolio.html">Portfolio</a> |
             <a href="qualifications.html">Qualifications</a> |
             <a href="service.html">Service</a> |
             <a href="genai.html">GenAI</a>
         </div>
-        <hr>
     </header>
     <main>
+        <section class="intro-section" style="position:relative;">
+            <div class="intro-bg"></div>
+            <div class="intro-overlay"></div>
+            <div class="intro-content">
+                <p class="intro-text">Welcome to David's site!</p>
+            </div>
+        </section>
         <section id="about-me">
             <h2>About Me</h2>
-            <img src="" alt="background photo">
-            <p>Hi, my name is David Hunt. I am passionate about technology, engineering, and making a positive impact in my community. Explore my website to learn more about my work, experience, and interests.</p>
+            <div class="about-content">
+                <img src="david hunt - headshot.png.png" alt="David Hunt smiling" class="about-img">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQFmtIok0hjdTw/feedshare-shrink_800/feedshare-shrink_800/0/1724123179011?e=1760572800&v=beta&t=pImpMOxR5uif9kHZvEmDWvFWTOcTScSn3igTuw8Meig" alt="David Hunt presenting" class="about-img">
+                <div class="about-text">
+                    <p>I'm a passionate Computer Science student based in Texas. My interests span software development and AI to sports and finance.</p>
+                    <p>Outside of work, I enjoy hiking, traveling, and volunteering. I believe in using technology to make a positive impact, no matter the industry.</p>
+                    <p>Feel free to explore my portfolio and reach out if you'd like to connect!</p>
+                </div>
+            </div>
         </section>
-        <hr>
         <section id="featured-projects">
             <h2>Featured Projects</h2>
             <div class="featured-projects">
                 <div class="featured-project">
-                    <h3>Ft. Proj 1</h3>
-                    <img src="" alt="Project 1">
-                    <p>Will have an update here once I choose a project to highlight!</p>
+                    <h3>Build4Nurse</h3>
+                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHCMiCmMnjW_w/feedshare-shrink_2048_1536/B56ZXkcCUGGcAo-/0/1743294311302?e=1760572800&v=beta&t=cBtXJz6_e6bcfA6I2iOEcK9NYfC73NvC1S_SJTnt9ME" alt="Project 1">
+                    <p>Hands-free vitals transcription for nurses that automatically updates patient's charts.</p>
                 </div>
                 <div class="featured-project">
                     <h3>Ft. Proj 2</h3>
                     <img src="" alt="Project 2">
-                    <p>Will have an update here once I choose a project to highlight!</p>
+                    <p>Will have an update here once I choose what to highlight!</p>
                 </div>
             </div>
         </section>
-        <hr>
         <section id="contact">
             <h2>Contact</h2>
             <p>Want to get in touch? Email me at <a href="mailto:david.hunt4@tamu.edu">david.hunt4@tamu.edu</a> or connect on <a href="https://www.linkedin.com/in/david-hunt4/">LinkedIn</a>.</p>
         </section>
-        <hr>
         <section id="latest-news">
             <h2>Latest News</h2>
             <ul>
@@ -54,8 +60,6 @@
             </ul>
         </section>
     </main>
-    <footer style="text-align:center; margin:40px 0 20px 0; color:#888;">
+    <footer>
         &copy; 2025 David Hunt. All rights reserved.
     </footer>
-</body>
-</html>
