@@ -113,20 +113,114 @@ footer {
     font-size: 15px;
 }
 
-/* Navigation Center */
+/* Navigation Bar at Top */
+.nav-top {
+    width: 100%;
+    background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px #e0e7ef;
+    padding: 0;
+}
 .nav-center {
     text-align: center;
-    margin-bottom: 0;
+    padding: 18px 0 10px 0;
+    font-size: 18px;
+}
+.nav-center a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 16px;
+    transition: color 0.2s;
+}
+.nav-center a:hover {
+    color: #ffd700;
+    text-decoration: underline;
 }
 
-/* About Me section */
+/* Introduction Section */
+.intro-section {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.intro-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.fineartamerica.com/images-medium-large-5/st-louis-skyline-at-night-gateway-arch-color-panorama-missouri-jon-holiday.jpg') center/cover no-repeat;
+    filter: blur(8px) brightness(0.5);
+    z-index: 1;
+}
+.intro-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(30, 40, 60, 0.5);
+    z-index: 2;
+}
+.intro-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+.intro-text {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 0 2px 12px #222;
+    padding: 0 24px;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* About Me Section */
 #about-me {
     text-align: center;
     margin-bottom: 40px;
 }
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+}
+.about-img {
+    border-radius: 16px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: right;
+    box-shadow: 0 4px 16px #e0e7ef;
+    background: #e0e7ef;
+}
+.about-text {
+    max-width: 500px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #222;
+}
 #about-me p {
-    max-width: 600px;
-    margin: 0 auto;
+    margin: 0 0 12px 0;
 }
 
 /* Featured Projects section */
@@ -158,7 +252,121 @@ footer {
     margin: 0 auto;
 }
 
-/* Responsive Design */
+/* Calendar Styles */
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+.calendar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.calendar-controls button {
+    background: none;
+    color: #3a7bd5;
+    border: none;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.2s;
+    box-shadow: none;
+    min-width: 32px;
+    min-height: 32px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calendar-controls button:hover {
+    color: #005fa3;
+    background: #e0e7ef;
+}
+.calendar-controls span {
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+}
+.calendar-table {
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 12px #e0e7ef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.calendar-table td {
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #e0e7ef;
+    transition: background 0.2s, color 0.2s;
+}
+.calendar-table td.calendar-day {
+    background: #f5f8fa;
+}
+.calendar-table td.calendar-day:hover {
+    background: #3a7bd5;
+    color: #fff;
+}
+.calendar-table th {
+    background: #3a7bd5;
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 0;
+    border: 1px solid #e0e7ef;
+}
+.calendar-table tr {
+    height: 38px;
+}
+
+/* Service Rows */
+.service-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+.service-row.reverse {
+    flex-direction: row-reverse;
+}
+.service-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #222;
+    max-width: 400px;
+}
+.service-img {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+    background: #eee;
+    box-shadow: 0 2px 8px #e0e7ef;
+}
+/* @media (max-width: 900px) {
+    .service-row, .service-row.reverse {
+        flex-direction: column !important;
+        gap: 16px;
+    }
+    .service-text, .service-img {
+        max-width: 100%;
+        min-width: 0;
+        height: 180px;
+    }
+} */
+
+/* Responsive Design
 @media (max-width: 700px) {
     .featured-projects {
         flex-direction: column;
@@ -174,4 +382,4 @@ footer {
     h2 {
         font-size: 22px;
     }
-}
+} */
