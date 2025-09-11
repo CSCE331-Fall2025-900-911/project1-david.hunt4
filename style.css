@@ -354,32 +354,3 @@ footer {
     background: #eee;
     box-shadow: 0 2px 8px #e0e7ef;
 }
-/* @media (max-width: 900px) {
-    .service-row, .service-row.reverse {
-        flex-direction: column !important;
-        gap: 16px;
-    }
-    .service-text, .service-img {
-        max-width: 100%;
-        min-width: 0;
-        height: 180px;
-    }
-} */
-
-/* Responsive Design
-@media (max-width: 700px) {
-    .featured-projects {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-    section {
-        padding: 20px 5px;
-    }
-    h1 {
-        font-size: 28px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-} */
