@@ -4,7 +4,162 @@
     <title>GenAI | David Hunt</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f9fafc;
+        color: #222;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+        color: #fff;
+        padding: 30px 0 10px 0;
+        box-shadow: 0 2px 8px #e0e7ef;
+    }
+    header div a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0 12px;
+        transition: color 0.2s;
+    }
+    header div a:hover {
+        color: #ffd700;
+        text-decoration: underline;
+    }
+    hr {
+        border: none;
+        border-top: 2px solid #e0e7ef;
+        margin: 30px 0;
+    }
+    main {
+        padding: 0 20px;
+    }
+    section {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px #e0e7ef;
+        margin-bottom: 40px;
+        padding: 30px 0;
+    }
+    h2 {
+        color: #3a7bd5;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 600;
+    }
+    .calendar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
+    }
+    .calendar-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    .calendar-controls button {
+        background: none;
+        color: #3a7bd5;
+        border: none;
+        border-radius: 50%;
+        padding: 2px 8px;
+        font-size: 22px;
+        cursor: pointer;
+        transition: color 0.2s;
+        box-shadow: none;
+        min-width: 32px;
+        min-height: 32px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .calendar-controls button:hover {
+        color: #005fa3;
+        background: #e0e7ef;
+    }
+    .calendar-controls span {
+        font-size: 18px;
+        font-weight: 500;
+        color: #222;
+    }
+    .calendar-table {
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 0 2px 12px #e0e7ef;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .calendar-table td {
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        border: 1px solid #e0e7ef;
+        transition: background 0.2s, color 0.2s;
+    }
+    .calendar-table td.calendar-day {
+        background: #f5f8fa;
+    }
+    .calendar-table td.calendar-day:hover {
+        background: #3a7bd5;
+        color: #fff;
+    }
+    .calendar-table th {
+        background: #3a7bd5;
+        color: #fff;
+        font-weight: 600;
+        padding: 6px 0;
+        border: 1px solid #e0e7ef;
+    }
+    .calendar-table tr {
+        height: 38px;
+    }
+    .blog-posts {
+        margin-top: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .blog-post {
+        background: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #e0e7ef;
+        margin-bottom: 20px;
+        padding: 18px 16px;
+    }
+    .blog-post h4 {
+        margin-top: 0;
+        color: #3a7bd5;
+    }
+    .footer {
+        text-align: center;
+        margin: 40px 0 20px 0;
+        color: #888;
+        font-size: 15px;
+    }
+    @media (max-width: 700px) {
+        section {
+            padding: 20px 5px;
+        }
+        h2 {
+            font-size: 22px;
+        }
+        .calendar-table td, .calendar-table th {
+            font-size: 13px;
+            width: 28px;
+            height: 28px;
+        }
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -16,11 +171,103 @@
             <a href="genai.html">GenAI</a>
         </div>
         <hr>
-        <h1>GenAI</h1>
+    <h1 style="text-align:center;">GenAI</h1>
     </header>
     <main>
-        <!-- Add your main content here -->
+        <section id="genai-blog">
+            <h2>David's Blog</h2>
+            <div class="calendar-container">
+                <div class="calendar-controls">
+                    <button id="prev-month" title="Previous Month">&#8249;</button>
+                    <span id="calendar-label"></span>
+                    <button id="next-month" title="Next Month">&#8250;</button>
+                </div>
+                <div id="calendar"></div>
+            </div>
+            <div id="blog-posts" class="blog-posts">
+                <h3 id="selected-date-title">Select a date to view posts</h3>
+                <div id="posts-list"></div>
+            </div>
+        </section>
     </main>
+    <script>
+    // Blog data
+    const blogData = {
+        '2025-09-01': [
+            { title: 'GenAI Launch', content: 'Today I launched my GenAI blog!', image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80' }
+        ],
+        '2025-09-10': [
+            { title: 'Prompt Engineering', content: 'Exploring prompt engineering for generative AI.' },
+            { title: 'Model Updates', content: 'Updated my model to support new features.', image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80' }
+        ]
+        // Add more dates and posts as needed
+    };
+
+    // Calendar state
+    let calendarYear = new Date().getFullYear();
+    let calendarMonth = new Date().getMonth();
+
+    function renderCalendar() {
+        const calendar = document.getElementById('calendar');
+        const label = document.getElementById('calendar-label');
+        const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+        const firstDay = new Date(calendarYear, calendarMonth, 1).getDay();
+        label.textContent = `${monthNames[calendarMonth]} ${calendarYear}`;
+        let html = `<table class='calendar-table'><thead><tr>`;
+        ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(day => {
+            html += `<th>${day}</th>`;
+        });
+        html += `</tr></thead><tbody><tr>`;
+        for (let i = 0; i < firstDay; i++) html += '<td></td>';
+        for (let d = 1; d <= daysInMonth; d++) {
+            const dateStr = `${calendarYear}-${String(calendarMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+            html += `<td class='calendar-day' data-date='${dateStr}'>${d}</td>`;
+            if ((firstDay + d) % 7 === 0) html += '</tr><tr>';
+        }
+        html += '</tr></tbody></table>';
+        calendar.innerHTML = html;
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.onclick = function() { showPostsForDate(day.dataset.date); };
+        });
+    }
+
+    function showPostsForDate(dateStr) {
+        const posts = blogData[dateStr] || [];
+        document.getElementById('selected-date-title').textContent = `Posts for ${dateStr}`;
+        const postsList = document.getElementById('posts-list');
+        if (posts.length === 0) {
+            postsList.innerHTML = '<p>No posts for this date.</p>';
+        } else {
+            postsList.innerHTML = posts.map(post => {
+                let imgHtml = post.image ? `<img src='${post.image}' alt='Blog image' style='max-width:100%;border-radius:8px;margin-bottom:12px;'>` : '';
+                return `<div class='blog-post'>${imgHtml}<h4>${post.title}</h4><p>${post.content}</p></div>`;
+            }).join('');
+        }
+    }
+
+    function changeMonth(delta) {
+        calendarMonth += delta;
+        if (calendarMonth < 0) {
+            calendarMonth = 11;
+            calendarYear--;
+        } else if (calendarMonth > 11) {
+            calendarMonth = 0;
+            calendarYear++;
+        }
+        renderCalendar();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('prev-month').onclick = () => changeMonth(-1);
+        document.getElementById('next-month').onclick = () => changeMonth(1);
+        renderCalendar();
+    });
+    </script>
+    <div style="max-width:600px;margin:40px auto 0 auto;padding:20px 16px;background:#f5f5f5;border-radius:10px;box-shadow:0 2px 8px #e0e7ef;">
+        <label for="prompt-box" style="display:block;font-weight:600;color:#3a7bd5;margin-bottom:8px;">Prompt that generated this page:</label>
+        <textarea id="prompt-box" rows="9" style="width:100%;border-radius:6px;border:1px solid #e0e7ef;padding:10px;font-size:15px;resize:vertical;">Make the GenAI page a blog! I want it to be laid out in this way: it has a calendar that users can interact with. If the user clicks on a certain date, it pulls up the blog posts that I made on that date. Style the calendar so that it looks like a calendar and not just a collection of numbers, with the days of the week across the top. Make it possible to jump between differeent months with small, non-imposing arrows. Do not include any styling in the style.css file - make it all in this file. For the blog post display, it should support a title, text, and an optional imge.</textarea>
+    </div>
     <footer class="footer">&copy; 2025 David Hunt. All rights reserved.</footer>
 </body>
 </html>
