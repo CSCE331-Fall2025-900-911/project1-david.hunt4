@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+#contact {
+    max-width: 900px;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+}
+#contact p {
+    margin: 0 auto;
+}
+#contact a {
+    display: inline-block;
+    margin: 0.2rem 0.3rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+#contact a:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.6);
+}
+
+#latest-news {
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: center;
+}
+#latest-news h2 {
+    text-align: center;
+}
+#latest-news ul {
+    display: inline-block;
+    margin: 0.5rem auto 0 auto;
+    padding-left: 1rem;
+    text-align: left;
+    list-style-position: outside;
+}
+
+main > section + section {
+    position: relative;
+    padding-top: 2rem;
+}
+
+#about-me::before { content: none !important; }
+
+main > section + section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 16px;
+    background: center/100% 100% no-repeat url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'><path d='M0 6 C 15 0, 30 12, 45 6 S 75 0, 90 6 S 105 12, 120 6' stroke='rgba(255,255,255,0.5)' stroke-width='2.5' fill='none' stroke-linecap='round'/><path d='M0 6 C 12 12, 24 0, 36 6 S 60 12, 72 6 S 96 0, 120 6' stroke='rgba(255,255,255,0.25)' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
+}
+body.squiggle-separators main > section + section::before {
+    border-top: none;
+    height: 16px;
+    background: center/100% 100% no-repeat url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'><path d='M0 5 C 20 0, 40 10, 60 5 S 100 0, 120 5' stroke='rgba(255,255,255,0.5)' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+}
+#featured-projects > h2 {
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+.featured-project h3 {
+    margin: 0.5em 0 0.2em 0;
+    padding: 0 1rem;
+    text-align: left;
+    width: 100%;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.featured-projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto 2em auto;
+    max-width: 900px;
+    position: relative;
+}
+.featured-project {
+    background: #36393f;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    width: 320px;
+    color: #fff;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+}
+.featured-project img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    border: none;
+    position: static;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+.featured-project p {
+    margin: 0;
+    padding: 1em;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    color: #fff;
+    background: transparent;
+}
+.featured-projects .featured-project:nth-child(2) img {
+    height: 45%;
+    object-position: 50% 50%;
+}
+.featured-projects .featured-project:nth-child(2) p {
+    height: 50%;
+}
+.about-header-outside { display: none; }
+.about-header-inside { display: block; }
+
+body {
+    background: #23272a;
+    color: #fff;
+    font-family: "Liberation Mono", "Courier New", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: none;
+    padding: 2em 0 1em 0;
+    text-align: center;
+}
+header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+header div a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    background: none;
+    padding: 0;
+}
+header div a:not(:last-child)::after {
+    content: ' \2022 ';
+    color: #fff;
+    margin-left: 0.5em;
+    font-size: 1.3em;
+    vertical-align: middle;
+}
+/* Subpage headers */
+header hr { display: none; }
+header h1 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0.5em 0 1em 0;
+}
+footer {
+    background: none;
+    color: #fff;
+    text-align: center;
+    padding: 2em 0 1em 0;
+    font-size: 1em;
+}
+.intro-section {
+    background: none;
+    color: #fff;
+    margin-bottom: 3em;
+    text-align: center;
+}
+.intro-bg, .intro-overlay {
+    display: none;
+}
+.intro-content {
+    margin-top: 4em;
+}
+.intro-text {
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 2em;
+}
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
+}
+.about-bubble {
+    background: #36393f;
+    border-radius: 40px 40px 40px 40px/60px 60px 60px 60px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 2.5em 2em 2em 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    position: relative;
+    color: #fff;
+    font-size: 1.15em;
+}
+.about-img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 1em;
+}
+/* Card grid for Portfolio/Service sections */
+section:has(> .service-row) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    margin: 0 auto 2em auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.service-row, .service-row.reverse {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 320px;
+    margin: 0;
+    background: #36393f;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    overflow: hidden;
+    color: #fff;
+}
+
+.service-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border: none;
+    border-radius: 16px 16px 0 0;
+    display: block;
+}
+
+.service-text {
+    padding: 1em;
+    text-align: left;
+}
+
+.about-img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 2;
+}
+.about-img:first-of-type {
+    top: -40px;
+    left: -40px;
+}
+.about-img:last-of-type {
+        top: -40px;
+        left: 70px;
+        object-position: 80%;
+}
+
+button.switch-style:hover {
+    background: #36393f;
+    color: #fff;
+}
+
+.style2-bold {
+    font-weight: 600; /* matches imported weights for JetBrains/IBM Plex Mono */
+}
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+    section:has(> .service-row) { gap: 1em; }
+    .service-row, .service-row.reverse { width: 100%; max-width: 600px; }
+}
