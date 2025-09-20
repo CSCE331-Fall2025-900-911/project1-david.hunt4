@@ -6,10 +6,10 @@
 <body>
     <header>
         <div align="center">
-            <a href="index.html">Home</a> |
-            <a href="portfolio.html">Portfolio</a> |
-            <a href="qualifications.html">Qualifications</a> |
-            <a href="service.html">Service</a> |
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="service.html">Service</a>
             <a href="genai.html">GenAI</a>
         </div>
     </header>
@@ -22,11 +22,12 @@
             </div>
         </section>
         <section id="about-me">
-            <h2>About Me</h2>
+            <h2 class="about-header-outside">About Me</h2>
             <div class="about-content">
                 <img src="david hunt - headshot.png.png" alt="David Hunt smiling" class="about-img">
                 <img src="https://media.licdn.com/dms/image/v2/D5622AQFmtIok0hjdTw/feedshare-shrink_800/feedshare-shrink_800/0/1724123179011?e=1760572800&v=beta&t=pImpMOxR5uif9kHZvEmDWvFWTOcTScSn3igTuw8Meig" alt="David Hunt presenting" class="about-img">
-                <div class="about-text">
+                <div class="about-text about-bubble">
+                    <h2 class="about-header-inside">About Me</h2>
                     <p>I'm a passionate Computer Science student based in Texas. My interests span software development and AI to sports and finance.</p>
                     <p>Outside of work, I enjoy hiking, traveling, and volunteering. I believe in using technology to make a positive impact, no matter the industry.</p>
                     <p>Feel free to explore my portfolio and reach out if you'd like to connect!</p>
@@ -37,20 +38,20 @@
             <h2>Featured Projects</h2>
             <div class="featured-projects">
                 <div class="featured-project">
-                    <h3>Build4Nurse</h3>
                     <img src="https://media.licdn.com/dms/image/v2/D5622AQHCMiCmMnjW_w/feedshare-shrink_2048_1536/B56ZXkcCUGGcAo-/0/1743294311302?e=1760572800&v=beta&t=cBtXJz6_e6bcfA6I2iOEcK9NYfC73NvC1S_SJTnt9ME" alt="Project 1">
+                    <h3>Build4Nurse</h3>
                     <p>Hands-free vitals transcription for nurses that automatically updates patient's charts.</p>
                 </div>
                 <div class="featured-project">
-                    <h3>Ready Alert</h3>
                     <img src="https://www.researchgate.net/publication/324738657/figure/fig2/AS:689567216697351@1541417044325/NTHU-dataset-including-22-subjects-with-different-of-ethnicities.jpg" alt="Project 2">
+                    <h3>Ready Alert</h3>
                     <p>Drowsy driving detection that learns from facial expression and predicts with accuracy of over 80%.</p>
                 </div>
             </div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>Want to get in touch? Email me at <a href="mailto:david.hunt4@tamu.edu">david.hunt4@tamu.edu</a> or connect on <a href="https://www.linkedin.com/in/david-hunt4/">LinkedIn</a>.</p>
+            <p><span class="style2-bold">Want to get in touch?</span> Email me at <a href="mailto:david.hunt4@tamu.edu">david.hunt4@tamu.edu</a> or connect on <a href="https://www.linkedin.com/in/david-hunt4/">LinkedIn</a>.</p>
         </section>
         <section id="latest-news">
             <h2>Latest News</h2>
@@ -63,6 +64,22 @@
     </main>
     <footer>
         &copy; 2025 David Hunt. All rights reserved.
+        <button class="switch-style" onclick="switchStyle()">Switch Style</button>
+        <script>
+        function setStyleFromStorage() {
+            var link = document.querySelector('link[rel="stylesheet"]');
+            var style = localStorage.getItem('siteStyle') || 'style1.css';
+            if (link) link.setAttribute('href', style);
+        }
+        function switchStyle() {
+            var link = document.querySelector('link[rel="stylesheet"]');
+            var current = link.getAttribute('href');
+            var next = current === 'style1.css' ? 'style2.css' : 'style1.css';
+            link.setAttribute('href', next);
+            localStorage.setItem('siteStyle', next);
+        }
+        setStyleFromStorage();
+        </script>
     </footer>
 </body>
 </html>
