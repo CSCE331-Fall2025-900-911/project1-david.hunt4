@@ -9,10 +9,10 @@
 <body>
     <header>
         <div align="center">
-            <a href ="index.html">Home</a> |
-            <a href="portfolio.html">Portfolio</a> |
-            <a href="qualifications.html">Qualifications</a> |
-            <a href="service.html">Service</a> |
+            <a href ="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="service.html">Service</a>
             <a href="genai.html">GenAI</a>
         </div>
         <hr>
@@ -53,5 +53,21 @@
         </section>
     </main>
     <footer class="footer">&copy; 2025 David Hunt. All rights reserved.</footer>
+    <button class="switch-style" onclick="switchStyle()">Switch Style</button>
+    <script>
+    function setStyleFromStorage() {
+        var link = document.querySelector('link[rel="stylesheet"]');
+        var style = localStorage.getItem('siteStyle') || 'style1.css';
+        if (link) link.setAttribute('href', style);
+    }
+    function switchStyle() {
+        var link = document.querySelector('link[rel="stylesheet"]');
+        var current = link.getAttribute('href');
+        var next = current === 'style1.css' ? 'style2.css' : 'style1.css';
+        link.setAttribute('href', next);
+        localStorage.setItem('siteStyle', next);
+    }
+    setStyleFromStorage();
+    </script>
 </body>
 </html>
